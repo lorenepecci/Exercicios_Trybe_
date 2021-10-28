@@ -1,0 +1,23 @@
+body{
+    font-size: 16px;
+  }
+  h1{
+    font-family: sans-serif;
+    font-size: 65px;
+    color: orange;
+  }
+  .bg_color{
+    background-color: blue;
+  }
+  p{
+    font-weight: 600;
+    font-size: 3em;
+  }
+  li{
+    font-style: italic;
+    line-height: 60px;
+    text-align: center;
+    text-decoration: underline;
+
+    font-size: 2em;
+  }
