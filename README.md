@@ -270,3 +270,5 @@ O programa conta com mais de 1.500 horas de aulas online, abordando Introdução
 - [ ] 37-2: _Deque_
 - [ ] 37-3: _Pilhas_
 - [ ] 37-4: _[Projeto - TING (Trybe Is Not Google)]()_
+
+## Referência: Brenndha Cabral (https://raw.githubusercontent.com/brenndha-cabral/trybe-exercicios/main/README.md)
