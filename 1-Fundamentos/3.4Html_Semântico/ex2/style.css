@@ -14,3 +14,15 @@ article{
 article h2{
     text-align:center;
 }
+table, th, td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+img{
+    width:400px;
+}
+
+.referencia a{
+    display:block;
+}
