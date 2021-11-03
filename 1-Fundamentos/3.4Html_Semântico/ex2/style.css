@@ -26,3 +26,9 @@ img{
 .referencia a{
     display:block;
 }
+aside{
+    text-align: center;
+}
+aside h2{
+    display:inline;
+}
