@@ -1,23 +1,26 @@
 /* 5 - Crie uma função que receba um array de inteiros e retorne o inteiro que mais se repete. */
 
+        
 let lista=[2, 3, 2, 5, 8, 2, 3];
-let numeroMaisRepetido=0;
-let count=0;
+
+let somaNumber=0;
+let soma=0;
 
 function maisRepetido(list){
-    for(let i of list){
-        for(let j of list){
-            if(i===j){
-                count+=1;
+    for(let n of list){
+        
+        for(let numbers of list){
+            if(n==numbers){
+                soma+=1;
             }
         }
-        countDoI=count;
-        if(numeroMaisRepetido<countDoI){
-            numeroMaisRepetido=countDoI;
+        if(somaNumber<soma){
+            somaNumber=soma;
+            numberGanhador=n;
         }
-        
+        soma=0;
     }
-    return numeroMaisRepetido;
+    return numberGanhador;
+    
 }
-
 console.log(maisRepetido(lista))
