@@ -8,7 +8,7 @@ let negativo=0;
 
 function comparacaoFinalPalavras(palavra1,palavra2){
     
-    for(let i=(palavra2.length); i>0 ;i--){
+    for(let i=0; i<(palavra2.length-1) ;i++){
         if(palavra2[i]!==palavra1[i]){
             negativo+=1;
         }
