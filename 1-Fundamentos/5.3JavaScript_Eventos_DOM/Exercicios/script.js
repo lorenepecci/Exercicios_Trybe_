@@ -103,22 +103,19 @@ document.getElementById('btn-friday').addEventListener("click", colorSexta);
 Implemente duas funções que criem um efeito de "zoom". Ao passar o ponteiro do mouse em um dia do mês no calendário, o texto desse dia deve aumentar e, quando o ponteiro do mouse sair do dia, o texto deve retornar ao tamanho original.
 Dica - Propriedade: event.target . */
 
-function zoomDays() {
-    let dayss = document.querySelector('#days'); 
-    dayss.addEventListener("mouseover", function (event){
-        event.target.style.fontSize = '30px';
-        event.target.style.fontWeight = '600';
-    })
+
+let dayss = document.querySelector('#days'); // to pegando o ul que tem todos os li de dias ;
+function zooms(event) {
+    event.target.style.fontSize = '30px';
+    event.target.style.fontWeight = '600';
 }
-function zoomNot() {
-    let dayss = document.querySelector('#days'); 
-    dayss.addEventListener("mouseout", function (event){
-        event.target.style.fontSize = '20px';
-        event.target.style.fontWeight = '200';
-    })
+function zoomn(event) {
+    event.target.style.fontSize = '20px';
+    event.target.style.fontWeight = '200';
 }
-zoomDays()
-zoomNot()
+
+dayss.addEventListener("mouseover", zooms);
+dayss.addEventListener("mouseout", zoomn);
 
 /* Exercício 7:
 Implemente uma função que adiciona uma tarefa personalizada ao calendário. A função deve receber como parâmetro a string com o nome da tarefa (ex: "cozinhar") e criar dinamicamente um elemento com a tag <span> contendo a tarefa.
@@ -136,62 +133,85 @@ adicionarSpanTarefa("Cozinhar");
 Implemente uma função que adiciona uma legenda com cor para a tarefa criada no exercício anterior. Esta função deverá receber como parâmetro uma string ("cor") e criar dinamicamente um elemento de tag <div> com a classe task .
 O parâmetro cor deverá ser utilizado como cor de fundo da <div> criada.
 O elemento criado deverá ser adicionado como filho/filha da tag <div> que possui a classe "my-tasks" . */
-function addCorTask(cor){
-    const divCorTask =  document.createElement("div");
-    divCorTask.classList.add("task");
-    divCorTask.style.Color = cor;
-    document.querySelector('.my-tasks').appendChild(divCorTask);
-}
-addCorTask("blue");
+
+function newTaskDiv(color) {
+    let tasksContainer = document.querySelector('.my-tasks');
+    let newTask = document.createElement('div');
+  
+    newTask.className = 'task';
+    newTask.style.backgroundColor = color;
+    tasksContainer.appendChild(newTask);
+  };
+  
+  newTaskDiv('green');
 
 /* Exercício 9:
 Implemente uma função que adiciona um evento que, ao clicar no elemento com a tag <div> referente a cor da sua tarefa, atribua a este elemento a classe task selected , ou seja, quando sua tarefa possuir a classe task selected , ela estará selecionada.
 Ao clicar novamente no elemento, a sua classe deverá voltar a ser somente task , ou seja, esta tarefa está deixando de ser uma tarefa selecionada.
  */
 
-/* function funcC(){
-    const divCor = document.querySelector(".task");
-    const selectedTask = document.getElementsByClassName('task selected');
-    
-    divCor.addEventListener("click", function(event){
-        if(selectedTask.length === 0) {
-            event.target.className = 'task selected';
-        } else {
-            event.target.className = 'task';
-        }
-    });
-}
-funcC(); */
 
-function setTaskClass() {
-    let selectedTask = document.getElementsByClassName('task selected');
-    let myTasks = document.querySelector('.task');
-  
-    myTasks.addEventListener('click', function(event) {
-      if (selectedTask.length === 0) {
-        event.target.className = 'task selected';
-      } else {
-        event.target.className = 'task';
-      }
-    });
-  };
-  
-  setTaskClass();
+const divCor = document.querySelector(".task");
+const selectedTask = document.getElementsByClassName('task selected');
+function func(event) {
+    if(selectedTask.length === 0) {
+        event.target.classList.add('selected');
+    } else {
+        event.target.classList.remove('selected');
+    }
+}
+divCor.addEventListener("click", func);
+
+/* Exercício 10
+Implemente uma função que adiciona um evento que ao clicar em um dia do mês no calendário, atribua a este dia a cor da legenda da sua tarefa selecionada.
+Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à configuração inicial rgb(119,119,119) .
+ */
+
+const dayUl= document.querySelector("#days");
+function colorDaySelected(event) {
+    const selectedTask = document.querySelectorAll('.selected');//lista 
+    const task= document.querySelector(".task");// um item task
+    const color = task.style.backgroundColor;
+    console.log(selectedTask.length);
+    if(event.target.style.color !== color && selectedTask.length > 0){
+        event.target.style.color = color;
+    }else {
+        event.target.style.color = "rgb(119,119,119)";
+    } 
+}
+dayUl.addEventListener("click", colorDaySelected);
+ 
+
 
 /* Vamos adicionar compromissos ao seu calendário? Implemente uma função que, ao digitar um compromisso na caixa de texto "COMPROMISSOS", adiciona o item à lista "MEUS COMPROMISSOS" ao clicar no botão "ADICIONAR".
 Se nenhum caractere for inserido no campo input , a função deve retornar um alert com uma mensagem de erro ao clicar em "ADICIONAR".
 Ao pressionar a tecla "enter" o evento também deverá ser disparado.
 Dica - Propriedade: key .
  */
-function addCompromissos(){
-    const input = querySelector("#task-input");
-    const botaoAdd = querySelector("#btn-add");
-    botaoAdd.addEventListener("click", function(even){
-        console.log("oi");
-
-    })
+const input = document.querySelector("#task-input");
+const botaoAdd = document.querySelector("#btn-add");
+const task = document.querySelector(".task-list");
+function addCompromissos(event){
+    if(input.value.length > 0){
+        const liCompromisso = document.createElement("li");
+        liCompromisso.innerText = input.value;
+        task.appendChild(liCompromisso);
+        input.value = '';
+    } else {
+        alert("erro!");
+    }
 }
-addCompromissos()
+
+function addCompromissos2(event){
+    if(event.key === 'Enter' && input.value.length > 0 ){
+        const liCompromisso = document.createElement("li");
+        liCompromisso.innerText = input.value;
+        task.appendChild(liCompromisso);
+        input.value = '';
+    }
+}
+botaoAdd.addEventListener("click", addCompromissos);
+input.addEventListener("keyup", addCompromissos2);
 
 
 
