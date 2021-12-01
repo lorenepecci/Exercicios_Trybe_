@@ -1,0 +1,102 @@
+/* Realize as seguintes tarefas:
+1 - Utilizando a abordagem mobile first e media queries , crie três versões de layout diferentes para essa página . Cada layout deve corresponder a um tamanho diferente de página (pequeno, médio e grande) . Faça pelo menos um commit para cada layout ;
+2 - Para fazer isso de forma adequada, você deve prestar atenção no conteúdo da página e pensar em como mostrá-lo em cada um dos tamanhos de tela:
+Onde a lista de capítulos deve estar posicionada?
+Como a história deve ser mostrada?
+Como o cabeçalho deve ser posicionado?
+O que fazer com as informações do autor em cada tamanho de tela?
+3 - Talvez você precise alterar o HTML um pouco, adicionando elementos para facilitar a estilização, ou talvez mudando um bloco de lugar dentro da página.
+ */
+
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+/* 
+header {
+    display:flex;
+}
+
+header h1 {
+    flex-grow:1;
+}
+
+nav ul {
+    display:flex;
+}
+
+ul > li:nth-child(1) {
+    align-items: space-between;
+}
+
+
+@media screen and (max-width:400px){
+    body {
+        background-color: blue; 
+    }
+}
+
+@media screen and (min-width:400px) and (max-width:800px){
+    body {
+        background-color:yellow; 
+    } 
+}
+
+@media screen and (min-width:800px) and (max-width:1300px){
+   body {
+       background-color: red; 
+   }
+} */
+
+.container {
+    display: flex;
+  }
+  
+  p {
+    padding: 20px;
+  }
+  
+  /* TODO */
+  
+  @media screen and (max-width: 600px) {
+    body {
+      background-color: lightcoral;
+      font-family: sans-serif;
+    }
+    .container {
+      flex-direction: column;
+    }
+  
+    p {
+      padding: 0 5px;
+      line-height: 1.5em;
+    }
+  
+    /* TODO */
+  }
+  
+  @media screen and (min-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  
+    .container {
+      flex-wrap: wrap;
+    }
+  
+    /* TODO */
+  }
+  
+  @media screen and (min-width: 1000px) {
+    body {
+      background-color: lightgreen;
+    }
+  
+    .container {
+      flex-wrap: nowrap;
+    }
+  
+    /* TODO */
+  }
