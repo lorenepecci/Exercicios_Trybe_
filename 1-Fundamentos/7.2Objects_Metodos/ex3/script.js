@@ -104,3 +104,5 @@ const verifyPair = (obj, key, value) => {
     return isEqual;
   };
   console.log(verifyPair(lesson2,'professor','Carlos'));
+
+  
