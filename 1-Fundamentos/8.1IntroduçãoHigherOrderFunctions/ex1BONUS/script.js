@@ -27,7 +27,7 @@ O dano será um número aleatório entre 15 (dano mínimo) e o valor do atributo
 
 const damageDragon = (dragon ) => {
     const { strength } = dragon;
-    let valor = Math.floor(Math.random()*(strength - 15)) 
+    let valor = Math.floor(Math.random()*(strength - 14)) 
     damageD = valor + 15;
     return damageD;
 }
