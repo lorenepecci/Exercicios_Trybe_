@@ -12,5 +12,7 @@ const yearSeasons = {
 
 const {spring, summer, autumn, winter} = yearSeasons;
 const fazendoLista = (spring, summer, autumn, winter) => [...spring,...summer, ...autumn,...winter];
-
+/* ouuu : */
+const month = [...spring,...summer, ...autumn,...winter];
 console.log(fazendoLista(spring, summer, autumn, winter))
+console.log(month)
