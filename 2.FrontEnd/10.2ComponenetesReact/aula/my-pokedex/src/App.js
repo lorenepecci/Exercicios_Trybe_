@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import Pokemon from './Pokemon';
 import Pokedex from './Pokedex';
 import pokemons from './Data';
 import React from 'react';

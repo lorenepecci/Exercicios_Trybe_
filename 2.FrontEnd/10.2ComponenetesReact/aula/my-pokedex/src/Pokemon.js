@@ -2,7 +2,7 @@ import React from "react";
 
 class Pokemon extends React.Component {
   render() {
-    const {data:  { name, type, averageWeight, image } } = this.props;
+    const {poke:  { name, type, averageWeight, image } } = this.props;
     return (
       <div className="pokemon">
         <h1>Name: {name}</h1>
