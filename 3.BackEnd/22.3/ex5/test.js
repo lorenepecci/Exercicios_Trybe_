@@ -17,7 +17,6 @@ const funcWriteFile = require( "./arqFunc" );
 const phrase = "hello i'm lorene."
 
 describe( 'testing function funcWriteFile', () => {
-  
   describe( 'resposta case success', () => {
     before(() => {
       sinon.stub(fs, 'writeFileSync').returns("success!");
@@ -25,25 +24,28 @@ describe( 'testing function funcWriteFile', () => {
   
     after(() => {
       fs.writeFileSync.restore();
-    });
-    const resp = funcWriteFile( 'file.txt', "hello i'm lorene." );
+    }); 
+    
     it( 'the text is writed the phrase correctly', () => {
+      const resp = funcWriteFile( 'file.txt', phrase );
       expect(resp).to.be.equals("success!")
     })
   })
   describe( 'resposta case error', () => {
     before(() => {
-      sinon.stub(fs, 'writeFileSync').returns("error")
+      sinon.stub(fs, 'writeFileSync').throws(new Error('Arquivo não encontrado'));
+
     });
   
     after(() => {
       fs.writeFileSync.restore();
-    });
-    const resp = funcWriteFile( 'fileWrong.txt' );
-    it( 'error because the second parameter is not set', () => {
-      expect(resp).to.be.equals("error")
+    }); 
+      
+     it( 'error because the second parameter is not set', () => {
+      const resp = funcWriteFile( 'fileWrong.txt', phrase );
+      expect(resp).to.be.equals("Arquivo não encontrado")
     })
-    
+     
   })
 
 
