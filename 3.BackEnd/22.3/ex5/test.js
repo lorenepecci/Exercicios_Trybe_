@@ -12,4 +12,39 @@ Garanta que todos os testes escritos no exercício 4 irão passar com sucesso. *
 const { expect } = require( "chai" ); 
 const sinon = require( "sinon" ); 
 const fs = require( "fs" ); 
-const funcWriteFile = require( "arqFunc" ); 
+const funcWriteFile = require( "./arqFunc" ); 
+
+const phrase = "hello i'm lorene."
+
+describe( 'testing function funcWriteFile', () => {
+  
+  describe( 'resposta case success', () => {
+    before(() => {
+      sinon.stub(fs, 'writeFileSync').returns("success!");
+    });
+  
+    after(() => {
+      fs.writeFileSync.restore();
+    });
+    const resp = funcWriteFile( 'file.txt', "hello i'm lorene." );
+    it( 'the text is writed the phrase correctly', () => {
+      expect(resp).to.be.equals("success!")
+    })
+  })
+  describe( 'resposta case error', () => {
+    before(() => {
+      sinon.stub(fs, 'writeFileSync').returns("error")
+    });
+  
+    after(() => {
+      fs.writeFileSync.restore();
+    });
+    const resp = funcWriteFile( 'fileWrong.txt' );
+    it( 'error because the second parameter is not set', () => {
+      expect(resp).to.be.equals("error")
+    })
+    
+  })
+
+
+} )
