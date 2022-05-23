@@ -1,4 +1,6 @@
 const express = require( 'express' );
-const routes = express.Router();
-//const cepController = 
-routes.use('/cep', cepController)
+const router = express.Router();
+const cepController = require( '../controllers/cepController' );
+router.use( '/cep', cepController );
+
+module.exports = router;
