@@ -6,6 +6,6 @@ const connection = mysql.createPool( {
   user: "lorene",
   password: "lor55fdspp",
   database: "cep_lookup"
-} )
+} );
 
-module.exports = { connection };
+module.exports = connection ;
