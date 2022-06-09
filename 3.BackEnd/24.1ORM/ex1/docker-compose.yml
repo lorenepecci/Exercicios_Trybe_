@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  db:
+    container_name: ex1
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - ${DATABASE_PORT}:3306
