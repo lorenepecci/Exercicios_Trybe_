@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strict": true,
+  },
+  "extends": "@tsconfig/node16/tsconfig.json"
+}
