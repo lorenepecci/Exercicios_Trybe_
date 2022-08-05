@@ -19,9 +19,9 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   const { name, message, details } = err as any;
   console.log(`name: ${name}`);
 
-  switch (name) {
+  switch (name) { 
     case "ValidationError":
-      res.status(400).json({ message: details[0].message });
+      res.status(400).json({ message });
       break;
     case "NotFoundError":
       res.status(404).json({ message });

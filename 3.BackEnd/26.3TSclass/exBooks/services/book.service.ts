@@ -17,7 +17,7 @@ class BookService {
     return books;
   }
 
-  public create(book: Book): Promise<Book> {
+  public create(book: Book): Promise<Book> { 
     return this.model.create(book);
   }
 
